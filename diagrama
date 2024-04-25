@@ -1,0 +1,116 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Cliente {
+    private String nome;
+    private String endereco;
+
+    public Cliente(String nome, String endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+    }
+
+    public void fazerCompra() {
+     
+    }
+}
+
+class Carrinho {
+    private List<Item> itens;
+
+    public Carrinho() {
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarItem(Item item) {
+        itens.add(item);
+    }
+
+    public void removerItem(Item item) {
+        itens.remove(item);
+    }
+
+    public float calcularTotal() {
+        float total = 0;
+        for (Item item : itens) {
+            total += item.getPreco();
+        }
+        return total;
+    }
+}
+
+class Item {
+    private String nome;
+    private float preco;
+
+    public Item(String nome, float preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public float getPreco() {
+        return preco;
+    }
+}
+
+class Pagamento {
+    private String metodoPagamento;
+    private float valor;
+
+    public Pagamento(String metodoPagamento, float valor) {
+        this.metodoPagamento = metodoPagamento;
+        this.valor = valor;
+    }
+
+    public boolean efetuarPagamento() {
+     
+        return true; 
+    }
+}
+
+class Loja {
+    private String nome;
+
+    public Loja(String nome) {
+        this.nome = nome;
+    }
+}
+
+class Vendedor {
+    private String nome;
+    private String idEmpresa;
+
+    public Vendedor(String nome, String idEmpresa) {
+        this.nome = nome;
+        this.idEmpresa = idEmpresa;
+    }
+
+    public void processarCompra(Cliente cliente, Carrinho carrinho, Pagamento pagamento) {
+    
+    }
+}
+
+class Estoque {
+    private List<Item> itensDisponiveis;
+
+    public Estoque() {
+        this.itensDisponiveis = new ArrayList<>();
+    }
+
+    public void adicionarItem(Item item) {
+        itensDisponiveis.add(item);
+    }
+
+    public void removerItem(Item item) {
+        itensDisponiveis.remove(item);
+    }
+
+    public boolean verificarDisponibilidade(Item item) {
+        return itensDisponiveis.contains(item);
+    }
+}
+   
